@@ -18,9 +18,9 @@ public class AzbQueueSender {
 	@Autowired
 	private JmsTemplate jmsTemplate;
 	
-	@Scheduled(fixedDelay = 1000,initialDelay = 500)
-	public void send() {
-		String message="Hi this is Azure Services Bus Queue Message test";
+	//@Scheduled(fixedDelay = 1000,initialDelay = 500)
+	public void send(String message) {
+//		String message="Hi this is Azure Services Bus Queue Message test";
 		this.jmsTemplate.convertAndSend(QUEUE_NAME,
 				message);
 		logger.info("Message Sent to Queue......");

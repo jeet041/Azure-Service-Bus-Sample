@@ -22,7 +22,5 @@ public class AzbQueueReceiver {
     @JmsListener(destination = QUEUE_NAME)
     public void receiveMessage(String message) {
         LOGGER.info("Message received: {}", message);
-        String connectionString= String.valueOf(secretClient.getSecret("connectionstring"));
-        LOGGER.info("ConnectionString Fetched from key Vault {}",connectionString);
     }
 }

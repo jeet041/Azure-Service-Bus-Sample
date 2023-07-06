@@ -22,10 +22,9 @@ public class AzbTopicPublisher {
 	@Autowired
 	private JmsTemplate jmsTemplate;
 	
-	@Scheduled(fixedDelay = 1000,initialDelay = 500)
-	public void send() {
-		this.jmsTemplate.convertAndSend(Topic,
-				"Hi this is Azure Services Bus Topic Message test");
+	//@Scheduled(fixedDelay = 1000,initialDelay = 500)
+	public void send(String msg) {
+		this.jmsTemplate.convertAndSend(Topic,msg);
 		logger.info("Message Sent to Topic......");
 	}
 }

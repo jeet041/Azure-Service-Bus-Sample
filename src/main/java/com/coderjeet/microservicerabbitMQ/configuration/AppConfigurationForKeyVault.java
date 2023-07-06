@@ -11,11 +11,15 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfigurationForKeyVault {
+
+	@Value("${spring.cloud.azure.keyvault.secret.property-sources[0].endpoint}")
+	private String vaultUri;
 	/**
 	 * The default credential first checks environment variables for configuration.
 	 * If environment configuration is incomplete, it will try managed identity.
@@ -23,7 +27,7 @@ public class AppConfigurationForKeyVault {
 		@Bean
 		public SecretClient createSecretClient() {
 			return new SecretClientBuilder()
-					.vaultUrl("https://demonservicebuskv.vault.azure.net/")
+					.vaultUrl(vaultUri)
 					.credential(new DefaultAzureCredentialBuilder().build())
 					.buildClient();
 		}
