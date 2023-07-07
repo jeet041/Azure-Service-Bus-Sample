@@ -34,7 +34,7 @@ public class EventController {
     @PostMapping("/send-toTopic")
     public void produceEventstoTopic(@RequestBody String msg){
         topicPublisher.send(msg);
-        String connectionString =  secretClient.getSecret("subscriptionId").getValue();
-        LOGGER.info("ConnectionString Fetched from key Vault {}",connectionString);
+        String subscriptionId =  secretClient.getSecret("subscriptionId").getValue();
+        LOGGER.info("ConnectionString Fetched from key Vault {}",subscriptionId);
     }
 }
