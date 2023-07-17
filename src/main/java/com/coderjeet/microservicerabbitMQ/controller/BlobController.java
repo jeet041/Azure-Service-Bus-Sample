@@ -1,3 +1,4 @@
+/*
 package com.coderjeet.microservicerabbitMQ.controller;
 
 
@@ -42,11 +43,13 @@ public class BlobController {
         this.azureStorageBlobProtocolResolver = patternResolver;
     }
 
-    /**
+    */
+/**
      * Using AzureStorageBlobProtocolResolver to get Azure Storage Blob resources with file pattern.
      *
      * @return fileNames in the container match pattern: *.txt
-     */
+     *//*
+
     @GetMapping("/getFiles")
     public List<String> listTxtFiles() throws IOException {
         Resource[] resources = azureStorageBlobProtocolResolver.getResources(String.format(BLOB_RESOURCE_PATTERN, this.containerName, "*.txt"));
@@ -71,3 +74,4 @@ public class BlobController {
         return "blob was updated";
     }
 }
+*/

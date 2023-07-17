@@ -1,20 +1,14 @@
+/*
 package com.coderjeet.microservicerabbitMQ.configuration;
 
 import com.azure.identity.*;
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class AppConfigurationForKeyVault {
 
 	@Value("${app.config.azure.client-secret}")
@@ -26,12 +20,14 @@ public class AppConfigurationForKeyVault {
 
 	@Value("${spring.cloud.azure.keyvault.secret.property-sources[0].endpoint}")
 	private String vaultUri;
-	/**
+	*/
+/**
 	 * The default credential first checks environment variables for configuration.
 	 * If environment configuration is incomplete, it will try managed identity.
-	 */
+	 *//*
 
-		@Bean
+
+		//@Bean
 		public SecretClient createSecretClient() {
 			ClientSecretCredential clientSecretCredentialBuilder= new ClientSecretCredentialBuilder().
 					clientSecret(clientSecret)
@@ -52,3 +48,4 @@ public class AppConfigurationForKeyVault {
 //				.buildClient();
 //	}
 }
+*/

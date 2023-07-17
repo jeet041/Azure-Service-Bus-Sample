@@ -8,9 +8,9 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import static org.springframework.amqp.rabbit.core.RabbitAdmin.QUEUE_NAME;
+//import static org.springframework.amqp.rabbit.core.RabbitAdmin.QUEUE_NAME;
 
-@Component
+//@Component
 public class AzbTopicPublisher {
 	
 	Logger logger = LoggerFactory.getLogger(AzbTopicPublisher.class);

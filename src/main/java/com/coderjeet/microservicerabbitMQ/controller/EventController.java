@@ -1,7 +1,7 @@
-package com.coderjeet.microservicerabbitMQ;
+package com.coderjeet.microservicerabbitMQ.controller;
 
 
-import com.azure.security.keyvault.secrets.SecretClient;
+//import com.azure.security.keyvault.secrets.SecretClient;
 import com.coderjeet.microservicerabbitMQ.sender.AzbQueueSender;
 import com.coderjeet.microservicerabbitMQ.sender.AzbTopicPublisher;
 import org.slf4j.Logger;
@@ -24,24 +24,24 @@ public class EventController {
     @Autowired
     private AzbQueueSender queueSender;
 
-    @Autowired
-    private AzbTopicPublisher topicPublisher;
+//    @Autowired
+//    private AzbTopicPublisher topicPublisher;
 
-    @Autowired
-    private SecretClient secretClient;
+//    @Autowired
+//    private SecretClient secretClient;
 
     @PostMapping("/send-toQueue")
     public void produceEventsToQueue(@RequestBody String msg){
         queueSender.send(msg);
-        String connectionString =  secretClient.getSecret("connectionstring").getValue();
-        LOGGER.info("ConnectionString Fetched from key Vault {}",connectionString);
+       // String connectionString =  secretClient.getSecret("connectionstring").getValue();
+      //  LOGGER.info("ConnectionString Fetched from key Vault {}",connectionString);
     }
 
     @PostMapping("/send-toTopic")
     public void produceEventstoTopic(@RequestBody String msg){
-        topicPublisher.send(msg);
-        String subscriptionId =  secretClient.getSecret("subscriptionId").getValue();
-        LOGGER.info("ConnectionString Fetched from key Vault {}",subscriptionId);
+       // topicPublisher.send(msg);
+       // String subscriptionId =  secretClient.getSecret("subscriptionId").getValue();
+       // LOGGER.info("ConnectionString Fetched from key Vault {}",subscriptionId);
     }
 
     @Value("azure-blob://testcontainer/test.txt")

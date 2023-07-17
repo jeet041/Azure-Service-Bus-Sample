@@ -8,7 +8,7 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class AzbTopicReceiver {
     private static final Logger LOGGER = LoggerFactory.getLogger(AzbTopicReceiver.class);
 
