@@ -13,8 +13,6 @@ public class AzbQueueReceiver {
     private static final Logger LOGGER = LoggerFactory.getLogger(AzbQueueReceiver.class);
     private static final String QUEUE_NAME = "demosamplequeue1";
 
-    @Autowired
-    private SecretClient secretClient;
 
     @Autowired
     private JmsTemplate jmsTemplate;
