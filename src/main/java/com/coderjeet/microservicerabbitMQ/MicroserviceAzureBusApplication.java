@@ -6,7 +6,6 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
 @EnableJms
 public class MicroserviceAzureBusApplication {
 

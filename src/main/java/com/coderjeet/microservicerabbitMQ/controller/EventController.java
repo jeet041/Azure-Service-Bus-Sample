@@ -37,6 +37,13 @@ public class EventController {
       //  LOGGER.info("ConnectionString Fetched from key Vault {}",connectionString);
     }
 
+    @PostMapping("/send-toQueue1")
+    public void produceEventsToQueue2(@RequestBody String msg){
+        queueSender.sendToQueue2(msg);
+        // String connectionString =  secretClient.getSecret("connectionstring").getValue();
+        //  LOGGER.info("ConnectionString Fetched from key Vault {}",connectionString);
+    }
+/*
     @PostMapping("/send-toTopic")
     public void produceEventstoTopic(@RequestBody String msg){
        // topicPublisher.send(msg);
@@ -60,5 +67,5 @@ public class EventController {
             os.write(data.getBytes());
         }
         return "file was updated";
-    }
+    }*/
 }

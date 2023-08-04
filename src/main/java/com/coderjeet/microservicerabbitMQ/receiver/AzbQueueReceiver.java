@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 public class AzbQueueReceiver {
     private static final Logger LOGGER = LoggerFactory.getLogger(AzbQueueReceiver.class);
 
-    private static final String QUEUE_NAME = "testqueue";
+    private String QUEUE_NAME ;
 
 
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    @JmsListener(destination = QUEUE_NAME)
+    @JmsListener(destination = "${test.consumer.queue}")
     public void receiveMessage(String message) {
         LOGGER.info("Message received: {}", message);
     }

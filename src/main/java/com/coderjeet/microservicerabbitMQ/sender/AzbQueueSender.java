@@ -13,18 +13,27 @@ import org.springframework.stereotype.Component;
 public class AzbQueueSender {
 	
 	Logger logger = LoggerFactory.getLogger(AzbQueueSender.class);
-	private static final String QUEUE_NAME = "testqueue";
+	@Value("${test.producer.queue}")
+	private String QUEUE_NAME ;
+
+	@Value("${test.consumer.queue}")
+	private String QUEUE_NAME2 ;
 
 
 	@Autowired
 	private JmsTemplate jmsTemplate;
-	
-	//@Scheduled(fixedDelay = 1000,initialDelay = 500)
+
 	public void send(String message) {
-//		String message="Hi this is Azure Services Bus Queue Message test";
 		this.jmsTemplate.convertAndSend(QUEUE_NAME,
 				message);
-		logger.info("Message Sent to Queue......");
+		logger.info("Message Sent to {}",QUEUE_NAME);
+
+	}
+
+	public void sendToQueue2(String message) {
+		this.jmsTemplate.convertAndSend(QUEUE_NAME2,
+				message);
+		logger.info("Message Sent to {}",QUEUE_NAME2);
 
 	}
 }
